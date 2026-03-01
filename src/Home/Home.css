@@ -1,0 +1,52 @@
+/* .matter{
+    padding: 20px;
+    margin: 20px;
+    text-align: right;
+    background-color: antiquewhite;
+}
+.image{
+    text-align: left;
+} */
+ .matter {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    margin: 20px;
+    background-color:antiquewhite;
+}
+.image img {
+    width: 250px;   
+    height: auto;
+}
+.text {
+    text-align: justify;
+}
+.Doctor{
+    text-align: left;
+    padding: 20px;
+    margin: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    background-color: lightpink;
+}
+img{
+    width: 100px;
+    height: 100px;
+}
+.Neurologist{
+    text-align: left;
+    padding: 20px;
+    margin: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    background-color: lightpink;
+}
+.intro{
+    padding: 20px;
+    margin: 20px;
+    background-color: antiquewhite;
+    text-align: left;
+}
