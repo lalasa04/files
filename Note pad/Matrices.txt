@@ -1,0 +1,461 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 1. Matrix Row Sum:- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Given a matrix of size N x M, print row-wise sum, separated by a newline.
+Note: Try to solve this without declaring/storing the matrix.
+Input Format
+First line of input contains N, M - the size of the matrix. Its followed by N lines each containing M integers - elements of the matrix.
+Constraints:-
+1 <= N, M <= 100
+-106 <= ar[i] <= 106
+Output Format:-
+Print row-wise sum of the matrix, separated by a newline.
+Inputcopy	Outputcopy
+2 3             7
+5 -1 3          22
+19 8 -5
+Explanation 0
+Self Explanatory.
+Source Code:-
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        int M = sc.nextInt();
+        for (int i = 0; i < N; i++) {
+            int sum = 0;  
+            for (int j = 0; j < M; j++) {
+                sum += sc.nextInt();  
+            }
+            System.out.println(sum);
+        }
+    }
+}
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ B - Matrix column sum @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Given a matrix of size N x M, print column-wise sum, separated by a newline.
+Input Format:-
+The first line of input contains N, M - the size of the matrix. Its followed by N lines each containing M integers - elements of the matrix.
+Constraints:-
+1 <= N, M <= 100
+-106 <= ar[i] <= 106
+Output Format:-
+Print column-wise sum of the matrix, separated by newline.
+Inputcopy	Outputcopy
+2 2             24
+5 -1            7
+19 8
+Explanation 0
+Self Explanatory.
+Source Code:-
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        int M = sc.nextInt();
+        int[] colSum = new int[M];  
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < M; j++) {
+                colSum[j] += sc.nextInt();  
+            }
+        }
+        for (int j = 0; j < M; j++) {
+            System.out.println(colSum[j]);
+        }
+    }
+}
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ C - Sum of two matrices @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Given two matrices A and B each of size N x M, print sum of the matrices (A + B)..
+Note: Try solving it by declaring only a single matrix.
+Input Format:-
+First line of input contains N, M - size of the matrices. Its followed by 2*N lines, each containing M integers - elements of the matrices. First N lines for matrix A and the next N lines for matrix B.
+Constraints:-
+1 <= N, M <= 100
+-109 <= ar[i] <= 109
+Output Format:-
+Print sum of the 2 given matrices (A + B).
+Inputcopy	Outputcopy
+2 3             9 4 -3
+5 -1 3          20 6 16
+19 8 4
+4 5 -6
+1 -2 12
+Explanation 0
+Self Explanatory.
+Source Code:-
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        int M = sc.nextInt();
+        int[][] result = new int[N][M];  
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < M; j++) {
+                result[i][j] = sc.nextInt();
+            }
+        }
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < M; j++) {
+                result[i][j] += sc.nextInt();
+            }
+        }
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < M; j++) {
+                System.out.print(result[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ D - Transpose matrix @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Given a matrix of size N x M, print transpose of the matrix.
+Input Format:-
+First line of input contains N, M - the size of the matrix. Its followed by N lines each containing M integers - elements of the matrix.
+Constraints:-
+1 <= N, M <= 100
+-109 <= ar[i] <= 109
+Output Format:-
+Print the transposed of the given matrix.
+Inputcopy	Outputcopy
+2 2             5 19
+5 -1            -1 8
+19 8
+Explanation 0
+Self Explanatory
+Source Code:-
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        int M = sc.nextInt();
+        int[][] matrix = new int[N][M];
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < M; j++) {
+                matrix[i][j] = sc.nextInt();
+            }
+        }
+        for (int j = 0; j < M; j++) {
+            for (int i = 0; i < N; i++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ E - A sparse matrix @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Given a matrix of size N x M, print whether it is a sparse matrix or not.
+Note: If a matrix contain 0 in more than half of its cells, then it is called a sparse matrix.
+Input Format:-
+First line of input contains N, M - size of the matrix. Its followed by N lines each containing M intergers - elements of the matrix.
+Constraints:-
+1 <= N, M <= 100
+0 <= ar[i] <= 109
+Output Format:-
+Print "Yes" if the given matrix is a sparse matrix, otherwise print "No".
+Inputcopy	Outputcopy
+2 3             Yes
+5 0 0
+0 8 0
+Explanation 0
+Self Explanatory
+Source Code:-
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        int M = sc.nextInt();
+        int zeroCount = 0;
+        int totalElements = N * M;
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < M; j++) {
+                if (sc.nextInt() == 0) {
+                    zeroCount++;
+                }
+            }
+        }
+        if (zeroCount > totalElements / 2) {
+            System.out.println("Yes");
+        } else {
+            System.out.println("No");
+        }
+    }
+}
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ F - Rotation of Matrix @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Given a 2D square matrix, rotate the matrix by 90 degrees in clockwise manner.
+Note: Try to solve it by first scanning the matrix, then do an in-place rotation and then print the rotated matrix.
+Input Format:-
+First line of input contains T - number of test cases. First line of each test case contains N - size of the matrix [NxN]. Its followed by N lines each containing N integers - elements of the matrix.
+Constraints:-
+1 <= T <= 100
+1 <= N <= 100
+-100 <= ar[i][j] <= 100
+Output Format:-
+For each test case, print the rotated matrix, separated by newline.
+Inputcopy	       Outputcopy
+4                      Test Case #1:
+1                      1
+1                      Test Case #2:
+2                      4 1
+1 2                    3 2
+4 3                    Test Case #3:
+3                      7 8 1
+1 2 3                  6 9 2
+8 9 4                  5 4 3 
+7 6 5                  Test Case #4:
+5                      -96 65 -79 17 -44 
+-44 25 -52 69 -5       43 -77 28 22 25
+17 22 51 27 -44        -21 -14 -78 51 -52 
+-79 28 -78 1 -47       -20 -21 1 27 69 
+65 -77 -14 -21 -6      90 -6 -47 -44 -5
+-96 43 -21 -20 90
+Explanation 0
+Self Explanatory
+Source Code:-
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int T = sc.nextInt(); 
+        for (int t = 1; t <= T; t++) {
+            int N = sc.nextInt();
+            int[][] matrix = new int[N][N];
+            for (int i = 0; i < N; i++) {
+                for (int j = 0; j < N; j++) {
+                    matrix[i][j] = sc.nextInt();
+                }
+            }
+            for (int i = 0; i < N; i++) {
+                for (int j = i + 1; j < N; j++) {
+                    int temp = matrix[i][j];
+                    matrix[i][j] = matrix[j][i];
+                    matrix[j][i] = temp;
+                }
+            }
+            for (int i = 0; i < N; i++) {
+                for (int j = 0; j < N / 2; j++) {
+                    int temp = matrix[i][j];
+                    matrix[i][j] = matrix[i][N - j - 1];
+                    matrix[i][N - j - 1] = temp;
+                }
+            }
+            System.out.println("Test Case #" + t + ":");
+            for (int i = 0; i < N; i++) {
+                for (int j = 0; j < N; j++) {
+                    System.out.print(matrix[i][j] + " ");
+                }
+                System.out.println();
+            }
+        }
+    }
+}
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ G - Diagonal Traversal of Matrix @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Given a 2D matrix of size NxN, print the sum of the elements of all its diagonals.
+Input Format:-
+First line of input contains T - number of test cases. First line of each test case contains N - size of the matrix. Each of the next N lines contains N integers - the elements of the matrix.
+Constraints:-
+1 <= T <= 100
+1 <= N <= 100
+-100 <= ar[i][j] <= 100
+Output Format:-
+For each test case, print the sum of the elements of all the diagonals, separated by newline. Refer samples for more clarity.
+Inputcopy	Outputcopy
+4               4 -6 4 9 3
+3               -4 
+-5 0 4          -2 6 -4 
+2 8 -6          3 80 -15 -29 22 86 51 13 4 4 8
+3 7 1 
+1
+-4 
+2
+5 -2 
+-4 1 
+6
+-2 -3 -6 -5 50 3 
+8 7 10 -5 -3 30 
+6 3 70 9 -20 -7 
+-9 9 -6 7 3 2 
+-1 7 7 6 -4 3 
+8 5 6 -9 40 8
+Explanation 0
+Test Case 1:-
+Sum of the elements of the 1st diagonal: 4
+Sum of the elements of the 2nd diagonal: 0 + -6 = -6
+Sum of the elements of the 3rd diagonal: -5 + 8 + 1 = 4
+Sum of the elements of the 4th diagonal: 2 + 7 = 9
+Sum of the elements of the 5th diagonal: 3
+Test Case 2:-
+Sum of the elements of the 1st and only diagonal: -4
+Test Case 3:-
+Sum of the elements of the 1st diagonal: -2
+Sum of the elements of the 2nd diagonal: 5 + 1 = 6
+Sum of the elements of the 3rd diagonal: -4
+Source Code:-
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int T = sc.nextInt(); 
+        while (T-- > 0) {
+            int N = sc.nextInt();
+            int[][] matrix = new int[N][N];
+            for (int i = 0; i < N; i++) {
+                for (int j = 0; j < N; j++) {
+                    matrix[i][j] = sc.nextInt();
+                }
+            }
+            for (int d = 0; d < 2 * N - 1; d++) {
+                int sum = 0;
+                for (int i = 0; i < N; i++) {
+                    for (int j = 0; j < N; j++) {
+                        if (i + j == d) {
+                            sum += matrix[i][j];
+                        }
+                    }
+                }
+                System.out.print(sum + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ H - Spiral Traversal of Matrix @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Given a 2D square matrix, print the matrix in a spiral order. Refer examples for more details. From interviews point of view, after you scan the matrix in a 2D array, try to print the matrix in a spiral order without using any extra space.
+Input Format:-
+First line of input contains T - number of test cases. First line of each test case contains N - size of the matrix [NxN]. Its followed by N lines each containing N integers - elements of the matrix.
+Constraints:-
+1 <= T <= 100
+1 <= N <= 100
+-100 <= ar[i][j] <= 100
+Output Format:-
+For each test case, print the matrix in a spiral order, separated by newline.
+Inputcopy	       Outputcopy
+4                      1
+1                      1 2 3 4 
+1                      1 2 3 4 5 6 7 8 9 
+2                      -44 25 -52 69 -5 -44 -47 -6 90 -20 -21 43 -96 65 -79 17 22 51 27 1 -21 -14 -77 28 -78
+1 2
+4 3
+3
+1 2 3
+8 9 4
+7 6 5
+5
+-44 25 -52 69 -5 
+17 22 51 27 -44 
+-79 28 -78 1 -47 
+65 -77 -14 -21 -6 
+-96 43 -21 -20 90
+Explanation 0
+Self Explanatory
+Source Code:-
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int T = sc.nextInt(); 
+        while (T-- > 0) {
+            int N = sc.nextInt();
+            int[][] matrix = new int[N][N];
+            for (int i = 0; i < N; i++) {
+                for (int j = 0; j < N; j++) {
+                    matrix[i][j] = sc.nextInt();
+                }
+            }
+            int top = 0, bottom = N - 1;
+            int left = 0, right = N - 1;
+            while (top <= bottom && left <= right) {
+                for (int i = left; i <= right; i++) {
+                    System.out.print(matrix[top][i] + " ");
+                }
+                top++;
+                for (int i = top; i <= bottom; i++) {
+                    System.out.print(matrix[i][right] + " ");
+                }
+                right--;
+                if (top <= bottom) {
+                    for (int i = right; i >= left; i--) {
+                        System.out.print(matrix[bottom][i] + " ");
+                    }
+                    bottom--;
+                }
+                if (left <= right) {
+                    for (int i = bottom; i >= top; i--) {
+                        System.out.print(matrix[i][left] + " ");
+                    }
+                    left++;
+                }
+            }
+            System.out.println();
+        }
+    }
+}
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ I - Product of 2 Matrices @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Given 2 matrices, find the product.
+Input Format:-
+First line of input contains T - number of test cases. First line of each test case contains N1, M1 - size of the 1st matrix. Its followed by N1 lines each containing M1 intergers - elements of the 1st matrix. The next line contains N2, M2 - size of the 2nd matrix. Its followed by N2 lines each containing M2 intergers - elements of the 2nd matrix. Note that M1 = N2.
+Constraints:-
+1 <= T <= 100
+1 <= N1,M1,N2,M2 <= 50
+-100 <= mat[i][j] <= 100
+Output Format:-
+For each test case, print the resultant product matrix, separated by newline.
+Inputcopy	Outputcopy
+2               5 4 1
+2 2             1 -9 10
+1 2             -5210 4118 -2207 2979 
+3 -1            -1980 -1753 -2067 -3106
+2 3             
+1 -2 3 
+2 3 -1 
+2 3
+27 29 53 
+-28 49 -24 
+3 4
+23 52 -38 72 
+-64 15 -59 -10 
+-75 43 10 25
+Explanation 0
+Self Explanatory
+Source Code:-
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int T = sc.nextInt(); 
+        while (T-- > 0) {
+            int N1 = sc.nextInt();
+            int M1 = sc.nextInt();
+            int[][] A = new int[N1][M1];
+            for (int i = 0; i < N1; i++) {
+                for (int j = 0; j < M1; j++) {
+                    A[i][j] = sc.nextInt();
+                }
+            }
+            int N2 = sc.nextInt();
+            int M2 = sc.nextInt();
+            int[][] B = new int[N2][M2];
+            for (int i = 0; i < N2; i++) {
+                for (int j = 0; j < M2; j++) {
+                    B[i][j] = sc.nextInt();
+                }
+            }
+            int[][] result = new int[N1][M2];
+            for (int i = 0; i < N1; i++) {
+                for (int j = 0; j < M2; j++) {
+                    for (int k = 0; k < M1; k++) {
+                        result[i][j] += A[i][k] * B[k][j];
+                    }
+                }
+            }
+            for (int i = 0; i < N1; i++) {
+                for (int j = 0; j < M2; j++) {
+                    System.out.print(result[i][j] + " ");
+                }
+                System.out.println();
+            }
+        }
+    }
+}

@@ -1,0 +1,203 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ A - Reverse string @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Given a string, reverse the given string in-place and then print it.
+Note: Do not use any inbuilt functions/libraries for your main logic.
+Input Format:-
+Input contains a string S, consisting of ascii characters.
+Constraints:-
+1 <= len(s) <= 100
+Output Format:-
+Print the reversed string.
+Inputcopy	Outputcopy
+fdsrd           drsdf
+Explanation 0
+Self Explanatory
+Source Code:-
+import java.util.Scanner;
+public class Main 
+{
+    public static void main(String[] args) 
+    {
+        Scanner sc = new Scanner(System.in);
+        char[] s = sc.nextLine().toCharArray();
+        for (int i = s.length - 1; i >= 0; i--)
+            System.out.print(s[i]);
+    }
+}
+///////////////////// or /////////////////////
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        char[] arr = s.toCharArray();
+        int left = 0;
+        int right = arr.length - 1;
+        while (left < right) {
+            char temp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = temp;
+            
+            left++;
+            right--;
+        }
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i]);
+        }
+    }
+}
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ B - Odd even index @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Given a string, print all the letters present at odd index, followed by the letters present at even index.
+Input Format:-
+Input contains a string S, consisting of ascii characters.
+Constraints:-
+1 <= len(S) <= 100
+Output Format:-
+Print letters present at odd index, followed by the letters present at even index.
+Inputcopy	Outputcopy
+afdg5tg         fgtad5g
+Explanation 0
+Self Explanatory
+Source Code:-
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        for (int i = 1; i < s.length(); i += 2)
+            System.out.print(s.charAt(i));
+        for (int i = 0; i < s.length(); i += 2)
+            System.out.print(s.charAt(i));
+    }
+}
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ D - Vowels in a string @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Given a string, check if it contains only vowels.
+Input Format:-
+Input contains a string S, consisting of lowercase and uppercase characters.
+Constraints:-
+1 <= len(S) <= 100
+Output Format:-
+Print "Yes" if string contains only vowels, "No" Otherwise.
+Inputcopy	Outputcopy
+SmartInterviews No
+Explanation 0
+Self Explanatory
+Source Code:-
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String S = sc.nextLine();
+        boolean onlyVowels = true;
+        for (int i = 0; i < S.length(); i++) {
+            char ch = Character.toLowerCase(S.charAt(i));
+            if (!(ch == 'a' || ch == 'e' || ch == 'i' || 
+                  ch == 'o' || ch == 'u')) {
+                onlyVowels = false;
+                break;
+            }
+        }
+        if (onlyVowels) {
+            System.out.println("Yes");
+        } else {
+            System.out.println("No");
+        }
+    }
+}
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ F - Count vowels and consonants @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Given a string, print count of vowels and consonants in the string.
+Input Format:-
+Input contains a string S, consisting of lowercase and uppercase characters.
+Constraints:-
+1 <= len(S) <= 100
+Output Format:-
+Print count of vowels and consonants in the given string, separated by space.
+Inputcopy	Outputcopy
+aBxbbiAasPw     4 7
+Explanation 0
+Self Explanatory
+Source Code:-
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String S = sc.nextLine();
+        int vowels = 0, consonants = 0;
+        for (int i = 0; i < S.length(); i++) {
+            char ch = S.charAt(i);
+            if (Character.isLetter(ch)) {
+                ch = Character.toLowerCase(ch);
+                if (ch == 'a' || ch == 'e' || ch == 'i' || 
+                    ch == 'o' || ch == 'u') {
+                    vowels++;
+                } else {
+                    consonants++;
+                }
+            }
+        }
+        System.out.println(vowels + " " + consonants);
+    }
+}
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ G - Toggle case of characters @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Given a string, toggle the case of each character in the given string.
+Input Format:-
+Input contains a string S, consisting of lowercase and uppercase characters.
+Constraints:-
+1 <= len(S) <= 100
+Output Format:-
+Print the toggled string.
+Inputcopy	Outputcopy
+abdBd           ABDbD
+Explanation 0
+Self Explanatory
+Source Code:-
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String S = sc.nextLine();
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < S.length(); i++) {
+            char ch = S.charAt(i);
+            if (Character.isUpperCase(ch)) {
+                result.append(Character.toLowerCase(ch));
+            } 
+            else if (Character.isLowerCase(ch)) {
+                result.append(Character.toUpperCase(ch));
+            } 
+            else {
+                result.append(ch); 
+            }
+        }
+        System.out.println(result.toString());
+    }
+}
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ I - Prefix and suffix @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Given a string, compute the length of longest proper prefix which is same as the suffix of the given string.
+Input Format:-
+Input contains a string S, consisting of only lowercase characters.
+Constraints:-
+1 <= len(S) <= 100
+Output Format:-
+Print length of longest proper prefix which is same as suffix of the given string.
+Inputcopy	Outputcopy
+smartintsmart   5
+Explanation 0
+Self Explanatory
+Source Code:-
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String S = sc.nextLine();
+        int n = S.length();
+        int maxLen = 0;
+        for (int len = 1; len < n; len++) {
+            String prefix = S.substring(0, len);
+            String suffix = S.substring(n - len);
+            if (prefix.equals(suffix)) {
+                maxLen = len;
+            }
+        }
+        System.out.println(maxLen);
+    }
+}
